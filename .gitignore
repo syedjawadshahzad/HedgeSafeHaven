@@ -10,3 +10,6 @@
 __packages
 inst/doc
 *.Rmd
+
+.Rproj.user/
+*.Rproj
