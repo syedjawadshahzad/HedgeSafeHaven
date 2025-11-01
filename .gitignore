@@ -1,8 +1,12 @@
 .Rproj.user
-
-/.quarto/
 .Rhistory
 .RData
-.httr-oauth
-.DS_Store
-.quarto
+.Ruserdata
+*.RData
+*.rdb
+*.rdx
+*.png
+*.woff
+__packages
+inst/doc
+*.Rmd
