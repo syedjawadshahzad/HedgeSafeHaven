@@ -54,8 +54,8 @@ cdb <- function(x, y, p) {
   sd_y   <- sd(y,   na.rm = TRUE)
 
   # ES for marginals (right tail / losses)
-  es_x <- cvar::ES(qnorm, x = p, lower.tail = FALSE, mean = mean_x, sd = sd_x)
-  es_y <- cvar::ES(qnorm, x = p, lower.tail = FALSE, mean = mean_y, sd = sd_y)
+  es_x <- cvar::ES(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_x, sd = sd_x)
+  es_y <- cvar::ES(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_y, sd = sd_y)
 
   out <- numeric(length(weights))
 
@@ -67,8 +67,8 @@ cdb <- function(x, y, p) {
     sd_p   <- sqrt((w * sd_x)^2 + ((1 - w) * sd_y)^2)
 
     # ES and VaR for portfolio
-    es_p  <- cvar::ES(qnorm, x = p, lower.tail = FALSE, mean = mean_p, sd = sd_p)
-    var_p <- cvar::VaR(qnorm, x = p, lower.tail = FALSE, mean = mean_p, sd = sd_p)
+    es_p  <- cvar::ES(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_p, sd = sd_p)
+    var_p <- cvar::VaR(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_p, sd = sd_p)
 
     # CDB definition
     numerator   <- (w * es_x) + ((1 - w) * es_y) - es_p
