@@ -2,7 +2,7 @@
 % Please edit documentation in R/hedge_safehaven_bm10.R
 \name{hedge_safehaven_bm10}
 \alias{hedge_safehaven_bm10}
-\title{Hedge Coefficient Estimation (Baur & McDermott, 2010)}
+\title{Regression Coefficient Estimation (Baur & McDermott, 2010)}
 \usage{
 hedge_safehaven_bm10(hedged, hedge, dist = "norm")
 }

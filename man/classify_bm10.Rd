@@ -2,7 +2,7 @@
 % Please edit documentation in R/classify_bm10.R
 \name{classify_bm10}
 \alias{classify_bm10}
-\title{Classify Hedge and Safe-Haven Behavior (BM10 Framework)}
+\title{Classify Hedge and Safe-Haven Behavior}
 \usage{
 classify_bm10(res_df, tol = 1e-08)
 }

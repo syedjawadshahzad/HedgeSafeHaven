@@ -1,4 +1,4 @@
-#' Classify Hedge and Safe-Haven Behavior (BM10 Framework)
+#' Classify Hedge and Safe-Haven Behavior
 #'
 #' @description
 #' Classifies an asset’s hedge and safe-haven properties based on the

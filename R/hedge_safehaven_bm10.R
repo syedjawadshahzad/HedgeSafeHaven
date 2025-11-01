@@ -1,4 +1,4 @@
-#' Hedge Coefficient Estimation (Baur & McDermott, 2010)
+#' Regression Coefficient Estimation (Baur & McDermott, 2010)
 #'
 #' @description
 #' Estimates the time‐varying hedge ratio and its tail behavior following

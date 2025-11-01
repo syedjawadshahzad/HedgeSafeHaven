@@ -1,9 +1,11 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# HedgeSafeHaven <a href="https://syedjawadshahzad.github.io/HedgeSafeHaven/"><img src="man/figures/logo.png" align="right" height="120" alt="HedgeSafeHaven website" /></a>
-
 # HedgeSafeHaven
+<!-- pkgdown::hide_start -->
+<a href="https://syedjawadshahzad.github.io/HedgeSafeHaven/">
+  <img src="man/figures/logo.png" align="right" height="120" alt="HedgeSafeHaven logo" />
+</a>
+<!-- pkgdown::hide_end -->
+
 
 ## Step 1: Install the devtools package
 
@@ -25,4 +27,4 @@ library(HedgeSafeHaven)
 
 ## Step 3: Go through tutorial
 
-[HedgeSafeHaven Webpage](https://syedjawadshahzad.github.io/HedgeSafeHaven/)
+[Full documentation](https://syedjawadshahzad.github.io/HedgeSafeHaven/)
