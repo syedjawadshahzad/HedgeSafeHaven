@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<h1 id="hedge-and-safe-haven-testning">Hedge and Safe Haven
+testning</h1>
+<p>The package/repo is developed to test hedge and safe haven hypotheses
+(Baur and McDermott, 2010), estimate the hedge ratio, hedge
+effectiveness, and optimal portfolio weights (Basher and Sadorsky,
+2016), cross-quantilogram-based predictability (Han et al., 2016) and
+the conditional diversification benefits (Christoffersen et al., 2012;
+2018).</p>
+<h2 id="package-package-includes">📦 Package Includes</h2>
+<ul>
+<li><p><strong><code>hedge_safehaven_bm10()</code></strong><br />
+Implements the Baur &amp; McDermott (2010) regression-based framework
+for identifying hedge and safe-haven properties.</p></li>
+<li><p><strong><code>classify_bm10()</code></strong><br />
+Classifies an asset as a strong or weak hedge, or as a strong/weak safe
+haven, based on the estimated coefficients from
+<code>hedge_safehaven_bm10()</code>.</p></li>
+<li><p><strong><code>hedge_effectiveness_dcc()</code></strong><br />
+Estimates time-varying hedge ratios, conditional hedge effectiveness,
+and optimal hedge weights using an asymmetric DCC–GJR–GARCH
+model.</p></li>
+<li><p><strong><code>cdb()</code></strong><br />
+Computes the Christoffersen–Diebold–Bakshi (CDB) diversification benefit
+for two-asset portfolios at different portfolio weights.</p></li>
+<li><p><strong><code>hedgedata</code></strong><br />
+Daily log returns of the <strong>S&amp;P 500</strong>,
+<strong>Bitcoin</strong>, and <strong>Gold</strong> (sourced from Yahoo
+Finance); used for hedge and safe-haven illustrations.</p></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;https://github.com/syedjawadshahzad/HedgeSafeHaven&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(HedgeSafeHaven)   </span></code></pre></div>
+<h2 id="background--motivation">Background &amp; Motivation</h2>
+<p>The role of assets such as <strong>gold</strong> and
+<strong>bitcoin</strong> as potential hedges or safe havens for equity
+markets has attracted increasing scholarly attention (Ali et al., 2020;
+Shahzad et al., 2019, 2020; Mujtaba et al., 2024) amid heightened global
+economic uncertainty, persistent inflationary pressures, and evolving
+monetary policy regimes.</p>
+<h2 id="market-context-as-of-late-2025">Market Context (as of late
+2025)</h2>
+<ul>
+<li><strong>Gold</strong> has surged to record highs above
+<strong>$4,000 per ounce</strong>, driven by central-bank purchases and
+portfolio diversification away from fiat currencies.<br />
+(<a href="https://beincrypto.com/gold-all-time-high-bitcoin-rally/?utm_source=chatgpt.com">BeInCrypto,
+2025</a>)</li>
+<li><strong>Bitcoin</strong> climbed above <strong>$110,000</strong>
+amid U.S. dollar weakness and renewed “digital-gold” narratives.<br />
+(<a href="https://www.forbes.com/sites/digital-assets/2025/10/07/serious-us-dollar-fed-warning-triggers-sudden-bitcoin-and-gold-all-time-high-price-surge/?utm_source=chatgpt.com">Forbes,
+2025</a>)</li>
+<li>Short-term divergences have appeared — gold rallies while bitcoin
+retreats — highlighting their differing safe-haven mechanisms.<br />
+(<a href="https://www.coindesk.com/markets/2025/09/22/gold-rallies-an-hour-after-bitcoin-drops-suggesting-a-profit-rotation-into-metals?utm_source=chatgpt.com">CoinDesk,
+2025</a>)</li>
+</ul>
+<p>The <strong>HedgeSafeHaven</strong> package provides econometric
+tools to quantify such behaviors using <strong>GARCH–DCC</strong>,
+<strong>regression-based safe-haven models</strong>,
+<strong>cross-quantile dependence</strong>, and <strong>conditional
+diversification benefits (CDB)</strong>.</p>
+<hr />
+<h2 id="example-workflow--gold-and-bitcoin">Example Workflow — Gold and
+Bitcoin</h2>
+<p>We illustrate how to use <strong>gold (GLD)</strong> and
+<strong>bitcoin (BTC)</strong> as potential hedges or safe havens for
+the <strong>U.S. stock market (S&amp;P 500)</strong>.</p>
+<h3 id="one-hedge--safe-haven-classification">1️⃣ Hedge / Safe-Haven
+Classification</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Regression-based hedge/safe-haven estimation</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># SP500 and Gold</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;hedgedata&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>res_gld <span class="ot">&lt;-</span> <span class="fu">hedge_safehaven_bm10</span>(hedgedata<span class="sc">$</span>SP, hedgedata<span class="sc">$</span>GLD)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="fu">print</span>(res_gld)</span></code></pre></div>
+<pre><code>##   Hedge Coefficient_Sum    p_value
+## 1    c0      0.04988263 0.06089549
+## 2  0.10     -0.07209026 0.27142322
+## 3  0.05     -0.11405518 0.01072091
+## 4  0.01      0.03023066 0.56524296</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># SP500 and Gold</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>res_btc <span class="ot">&lt;-</span> <span class="fu">hedge_safehaven_bm10</span>(hedgedata<span class="sc">$</span>SP, hedgedata<span class="sc">$</span>BTC)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">print</span>(res_btc)</span></code></pre></div>
+<pre><code>##   Hedge Coefficient_Sum      p_value
+## 1    c0       0.8844556 3.060991e-20
+## 2  0.10       0.4617737 3.194434e-02
+## 3  0.05       1.1166908 1.300167e-12
+## 4  0.01       1.5372902 5.973991e-30</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Classification</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">classify_bm10</span>(res_gld)</span></code></pre></div>
+<pre><code>## [1] &quot;Selected asset is a not a hedge - safe haven for 5% .&quot;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">classify_bm10</span>(res_btc)</span></code></pre></div>
+<pre><code>## [1] &quot;Selected asset is a not a hedge - not a safe haven .&quot;</code></pre>
+<p>This classifies gold/bitcoin role as a hedge or safe haven relative
+to sp500 using the Baur–McDermott (2010) approach.</p>
+<h3 id="two-hedge-effectiveness-via-dcc">2️⃣ Hedge Effectiveness via
+DCC</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># Hedging asset: Gold</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>res_gld <span class="ot">&lt;-</span> <span class="fu">hedge_effectiveness_dcc</span>(hedgedata<span class="sc">$</span>SP, hedgedata<span class="sc">$</span>GLD)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="fu">print</span>(res_gld)</span></code></pre></div>
+<pre><code>##    beta_mean   beta_min beta_max         HE       OPW
+## 1 0.01634998 -0.8941619 1.532328 0.03604662 0.4852705</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># Hedged asset: Bitcoin, </span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>res_btc <span class="ot">&lt;-</span> <span class="fu">hedge_effectiveness_dcc</span>(hedgedata<span class="sc">$</span>SP, hedgedata<span class="sc">$</span>BTC)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="fu">print</span>(res_btc)</span></code></pre></div>
+<pre><code>##    beta_mean    beta_min  beta_max        HE        OPW
+## 1 0.06999591 -0.01849912 0.4599944 0.1095714 0.03016472</code></pre>
+<h3 id="three-cross-quantile-dependence-heatmaps">3️⃣ Cross-Quantile
+Dependence Heatmaps</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># Use gold (GLD) as predicted variable, S&amp;P (SP) as predicting variable</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> hedgedata[, <span class="fu">c</span>(<span class="st">&quot;GLD&quot;</span>, <span class="st">&quot;SP&quot;</span>)]</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="do">## setup and estimation </span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>k <span class="ot">=</span> <span class="dv">1</span>                             <span class="do">## lag order </span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>vec.q  <span class="ot">=</span> <span class="fu">seq</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="fl">0.05</span>)    <span class="do">## a list of quantiles </span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>B.size <span class="ot">=</span> <span class="dv">100</span>                      <span class="do">## Repetition of bootstrap  </span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>res1 <span class="ot">=</span> <span class="fu">crossq.heatmap</span>(df1, k, vec.q, B.size, <span class="at">var1_name =</span> <span class="st">&quot;Gold&quot;</span>, <span class="at">var2_name =</span> <span class="st">&quot;SP500&quot;</span>) </span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="do">## result </span></span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a><span class="fu">print</span>(res1<span class="sc">$</span>plot)</span></code></pre></div>
+<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># Use bitcoin (BTC) as predicted variable, S&amp;P (SP) as predicting variable</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> hedgedata[, <span class="fu">c</span>(<span class="st">&quot;BTC&quot;</span>, <span class="st">&quot;SP&quot;</span>)]</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>res2 <span class="ot">=</span> <span class="fu">crossq.heatmap</span>(df2, k, vec.q, B.size, <span class="at">var1_name =</span> <span class="st">&quot;Bitcoin&quot;</span>, <span class="at">var2_name =</span> <span class="st">&quot;SP500&quot;</span>) </span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="do">## result </span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="fu">print</span>(res2<span class="sc">$</span>plot)</span></code></pre></div>
+<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
+<p>These heatmaps visualize how dependence across quantiles changes from
+S&amp;P 500 to gold and bitcoin — revealing whether gold/bitcoin remains
+uncorrelated or negatively correlated (safe haven) during market
+stress.</p>
+<h3 id="four-conditional-diversification-benefit-cdb">4️⃣ Conditional
+Diversification Benefit (CDB)</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="co"># Compute CDB for SP500–Gold portfolio at 5% tail</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>res_cdb1 <span class="ot">&lt;-</span> <span class="fu">cdb</span>(hedgedata<span class="sc">$</span>SP, hedgedata<span class="sc">$</span>GLD, <span class="at">p =</span> <span class="fl">0.05</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="fu">print</span>(res_cdb1)</span></code></pre></div>
+<pre><code>##            w05       w10       w20
+## [1,] 0.2285815 0.3747956 0.5442972</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="co"># Compute CDB for SP500–Bitcoin portfolio at 5% tail</span></span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>res_cdb2 <span class="ot">&lt;-</span> <span class="fu">cdb</span>(hedgedata<span class="sc">$</span>SP, hedgedata<span class="sc">$</span>BTC, <span class="at">p =</span> <span class="fl">0.05</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="fu">print</span>(res_cdb2)</span></code></pre></div>
+<pre><code>##             w05       w10       w20
+## [1,] 0.06954154 0.1352266 0.2559137</code></pre>
+<p>This returns a 1×3 matrix of CDB values for portfolio weights of 5%,
+10%, and 20% in the hedging asset (gold/bitcoin). Higher CDB values
+imply stronger diversification benefits w.r.t weights.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Ali, S., Bouri, E., Czudaj, R. L., &amp; Shahzad, S. J. H. (2020).
+<em>Revisiting the valuable roles of commodities for international stock
+markets.</em> Resources Policy, 66, 101603.</li>
+<li>Basher, S. A., &amp; Sadorsky, P. (2016).</li>
+<li>Hedging emerging market stock prices with oil, gold, VIX, and bonds:
+A comparison between DCC, ADCC and GO-GARCH.* Energy Economics, 54,
+235–247. Baur, D. G., &amp; McDermott, T. K. (2010). <em>Is gold a safe
+haven? International evidence.</em> Journal of Banking &amp; Finance,
+34(8), 1886-1898.</li>
+<li>Christoffersen, P., Errunza, V., Jacobs, K., &amp; Langlois, H.
+(2012). <em>Is the potential for international diversification
+disappearing? A dynamic copula approach.</em> The Review of Financial
+Studies, 25(12), 3711-3751.</li>
+<li>Christoffersen, P., Jacobs, K., Jin, X., &amp; Langlois, H. (2018).
+<em>Dynamic dependence and diversification in corporate credit.</em>
+Review of Finance, 22(2), 521-560.</li>
+<li>Mujtaba, G., Siddique, A., Naifar, N., &amp; Shahzad, S. J. H.
+(2024). <em>Hedge and safe haven role of commodities for the US and
+Chinese equity markets.</em> International Journal of Finance &amp;
+Economics, 29(2), 2381–2414.</li>
+<li>Shahzad, S. J. H., Bouri, E., Roubaud, D., &amp; Kristoufek, L.
+(2020). <em>Safe haven, hedge and diversification for G7 stock markets:
+Gold versus bitcoin.</em> Economic Modelling, 87, 212–224.</li>
+<li>Shahzad, S. J. H., Bouri, E., Roubaud, D., Kristoufek, L., &amp;
+Lucey, B. (2019). <em>Is Bitcoin a better safe-haven investment than
+gold and commodities?.</em> International Review of Financial Analysis,
+63, 322-330.</li>
+</ul>
+
+</body>
+</html>
