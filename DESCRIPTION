@@ -1,9 +1,9 @@
 Package: HedgeSafeHaven
 Title: Hedge and Safe Haven Testing
-Version: 0.0.0.9000
+Version: 0.0.0.9
 Authors@R: 
     person("Jawad", "Shahzad", , "jawad.kazmi5@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: The package will have functions to test hedge and safe haven hypothesis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
