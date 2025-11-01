@@ -2,9 +2,9 @@
 % Please edit documentation in R/cdb.R
 \name{cdb}
 \alias{cdb}
-\title{Christoffersen–Diebold–Bakshi (CDB) diversification benefit}
+\title{Conditional Diversification Benefit (CDB)}
 \usage{
-cdb(x, y, p)
+cdb(x, y, p, w)
 }
 \arguments{
 \item{x}{Numeric vector of returns for asset X.}
@@ -12,39 +12,39 @@ cdb(x, y, p)
 \item{y}{Numeric vector of returns for asset Y.}
 
 \item{p}{Scalar in (0, 1): confidence level (e.g., \code{0.05} for 5\% ES/VaR).}
+
+\item{w}{Scalar in [0, 1]: portfolio weight on X (Y is 1 - w).}
 }
 \value{
-A \verb{1 x 3} numeric matrix of CDB values for weights 0.05, 0.10, 0.20.
-Column names are \code{"w05"}, \code{"w10"}, \code{"w20"}.
+A single numeric value giving the Conditional Diversification Benefit for the
+specified weight and confidence level.
 }
 \description{
-Compute the CDB diversification benefit (Christoffersen et al., 2012; 2018)
-for a two–asset portfolio at confidence level \code{p}, using normal–theory VaR/ES
+Compute the CDB (Christoffersen et al., 2012; 2018) for a two–asset
+portfolio at confidence level \code{p}, using normal–theory VaR/ES
 with plug-in means and standard deviations.
 }
 \details{
-For weights \verb{w ∈ \{0.05, 0.10, 0.20\}}, the function computes
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{CDB(w,p) = \{ w*ES_X(p) + (1-w)*ES_Y(p) - ES_P(p) \} /
-           \{ w*ES_X(p) + (1-w)*ES_Y(p) - VaR_P(p) \}
-}\if{html}{\out{</div>}}
-
-where \code{ES} and \code{VaR} are computed via \code{cvar::ES()} and \code{cvar::VaR()} using
-\code{stats::qnorm} (normal approximation), with portfolio mean/SD formed from the
-inputs’ plug-in mean and standard deviation.
+The function computes
+\deqn{ \mathrm{CDB}(w,p) = \frac{ w\,\mathrm{ES}_X(p) + (1-w)\,\mathrm{ES}_Y(p) - \mathrm{ES}_P(p) }
+                                   { w\,\mathrm{ES}_X(p) + (1-w)\,\mathrm{ES}_Y(p) - \mathrm{VaR}_P(p) } }
+where ES and VaR are computed via \code{cvar::ES()} and \code{cvar::VaR()} using
+\code{stats::qnorm} (normal approximation). Portfolio mean/SD use plug-in means/SDs
+under an independence assumption (no covariance term).
 }
 \examples{
 x <- rnorm(1000, 0.0005, 0.02)
 y <- rnorm(1000, 0.0003, 0.015)
-cdb(x, y, p = 0.05)
+cdb(x, y, p = 0.05, w = 0.3)
 
 }
 \references{
-Christoffersen, P., Errunza, V., Jacobs, K., & Jin, X. (2012).
-\emph{Is the potential for international diversification disappearing?}
+Christoffersen, P., Errunza, V., Jacobs, K., & Langlois, H. (2012).
+\emph{Is the potential for international diversification disappearing? A dynamic copula approach.}
 Review of Financial Studies, 25(12), 3711–3751.
-Christoffersen, P., Langlois, H., & Laurent, S. (2018).
-\emph{Long-Run Portfolio Choice and the Value of Diversification.}
+Christoffersen, P., Jacobs, K., Jin, X., & Langlois, H. (2018).
+\emph{Dynamic dependence and diversification in corporate credit.}
+Review of Finance, 22(2), 521–560.
 }
 \seealso{
 \code{\link[cvar:ES]{cvar::ES()}}, \code{\link[cvar:VaR]{cvar::VaR()}}

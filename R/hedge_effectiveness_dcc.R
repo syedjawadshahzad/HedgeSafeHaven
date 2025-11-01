@@ -1,9 +1,9 @@
-#' Hedge Ratio Summary, Conditional HE, and Optimal Hedging Weight (aDCC–GJR–GARCH)
+#' Hedge Ratio, Hedging Effectiveness, and Optimal Hedging Weight
 #'
 #' @description
 #' Fits a bivariate asymmetric DCC (aDCC) model with GJR–GARCH(1,1) margins and
 #' reports: (i) the time-varying hedge ratio summary (mean/min/max),
-#' (ii) a single hedging effectiveness (HE) value based on **conditional**
+#' (ii) hedging effectiveness (HE) value based on **conditional**
 #' variances, and (iii) the **optimal portfolio weight of the hedging asset**
 #' averaged over time (weights clipped to \[0,1\]).
 #'
@@ -52,8 +52,7 @@
 #'
 #' @references
 #' Basher, S. A., & Sadorsky, P. (2016).
-#' Hedging emerging market stock prices with oil, gold, VIX, and bonds:
-#' A comparison between DCC, ADCC and GO-GARCH.
+#' *Hedging emerging market stock prices with oil, gold, VIX, and bonds: A comparison between DCC, ADCC and GO-GARCH.*
 #' \emph{Energy Economics}, 54, 235–247.
 #'
 #' @seealso \code{\link[rugarch]{ugarchspec}},

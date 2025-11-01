@@ -94,7 +94,7 @@ hedge_safehaven_bm10 <- function(hedged, hedge, dist = "norm") {
 
   data.frame(
     Hedge = c("c0", "0.10", "0.05", "0.01"),
-    Coefficient_Sum = c(res_c0$estimate, res_010$estimate, res_005$estimate, res_001$estimate),
+    Coefficient = c(res_c0$estimate, res_010$estimate, res_005$estimate, res_001$estimate),
     p_value = c(res_c0$p, res_010$p, res_005$p, res_001$p),
     row.names = NULL
   )

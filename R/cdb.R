@@ -1,82 +1,75 @@
-#' Christoffersen–Diebold–Bakshi (CDB) diversification benefit
+#' Conditional Diversification Benefit (CDB)
 #'
 #' @description
-#' Compute the CDB diversification benefit (Christoffersen et al., 2012; 2018)
-#' for a two–asset portfolio at confidence level `p`, using normal–theory VaR/ES
+#' Compute the CDB (Christoffersen et al., 2012; 2018) for a two–asset
+#' portfolio at confidence level `p`, using normal–theory VaR/ES
 #' with plug-in means and standard deviations.
 #'
 #' @param x Numeric vector of returns for asset X.
 #' @param y Numeric vector of returns for asset Y.
 #' @param p Scalar in (0, 1): confidence level (e.g., `0.05` for 5% ES/VaR).
+#' @param w Scalar in \[0, 1]: portfolio weight on X (Y is 1 - w).
 #'
 #' @details
-#' For weights `w ∈ {0.05, 0.10, 0.20}`, the function computes
-#' ```
-#' CDB(w,p) = { w*ES_X(p) + (1-w)*ES_Y(p) - ES_P(p) } /
-#'            { w*ES_X(p) + (1-w)*ES_Y(p) - VaR_P(p) }
-#' ```
-#' where `ES` and `VaR` are computed via `cvar::ES()` and `cvar::VaR()` using
-#' `stats::qnorm` (normal approximation), with portfolio mean/SD formed from the
-#' inputs’ plug-in mean and standard deviation.
+#' The function computes
+#' \deqn{ \mathrm{CDB}(w,p) = \frac{ w\,\mathrm{ES}_X(p) + (1-w)\,\mathrm{ES}_Y(p) - \mathrm{ES}_P(p) }
+#'                                    { w\,\mathrm{ES}_X(p) + (1-w)\,\mathrm{ES}_Y(p) - \mathrm{VaR}_P(p) } }
+#' where ES and VaR are computed via `cvar::ES()` and `cvar::VaR()` using
+#' `stats::qnorm` (normal approximation). Portfolio mean/SD use plug-in means/SDs
+#' under an independence assumption (no covariance term).
 #'
 #' @return
-#' A `1 x 3` numeric matrix of CDB values for weights 0.05, 0.10, 0.20.
-#' Column names are `"w05"`, `"w10"`, `"w20"`.
+#' A single numeric value giving the Conditional Diversification Benefit for the
+#' specified weight and confidence level.
 #'
 #' @references
-#' Christoffersen, P., Errunza, V., Jacobs, K., & Jin, X. (2012).
-#' *Is the potential for international diversification disappearing?*
+#' Christoffersen, P., Errunza, V., Jacobs, K., & Langlois, H. (2012).
+#' *Is the potential for international diversification disappearing? A dynamic copula approach.*
 #' Review of Financial Studies, 25(12), 3711–3751.  
-#' Christoffersen, P., Langlois, H., & Laurent, S. (2018).
-#' *Long-Run Portfolio Choice and the Value of Diversification.*
+#' Christoffersen, P., Jacobs, K., Jin, X., & Langlois, H. (2018).
+#' *Dynamic dependence and diversification in corporate credit.*
+#' Review of Finance, 22(2), 521–560.
 #'
 #' @seealso [cvar::ES()], [cvar::VaR()]
 #'
 #' @examples
 #' x <- rnorm(1000, 0.0005, 0.02)
 #' y <- rnorm(1000, 0.0003, 0.015)
-#' cdb(x, y, p = 0.05)
+#' cdb(x, y, p = 0.05, w = 0.3)
 #'
 #' @importFrom stats sd qnorm
 #' @export
+cdb <- function(x, y, p, w) {
+  # ---- Input validation ----
+  if (!is.numeric(x) || !is.numeric(y))
+    stop("`x` and `y` must be numeric vectors.")
+  if (!is.numeric(p) || length(p) != 1L || p <= 0 || p >= 1)
+    stop("`p` must be a scalar in (0,1).")
+  if (!is.numeric(w) || length(w) != 1L || w < 0 || w > 1)
+    stop("`w` must be a scalar in [0,1].")
 
-cdb <- function(x, y, p) {
-  if (!is.numeric(x) || !is.numeric(y)) stop("`x` and `y` must be numeric vectors.")
-  if (!is.numeric(p) || length(p) != 1L || p <= 0 || p >= 1) stop("`p` must be a scalar in (0,1).")
-
-  # Fixed portfolio weights
-  weights <- c(0.05, 0.10, 0.20)
-
-  # Plug-in moments
+  # ---- Plug-in moments ----
   mean_x <- mean(x, na.rm = TRUE)
   mean_y <- mean(y, na.rm = TRUE)
   sd_x   <- sd(x,   na.rm = TRUE)
   sd_y   <- sd(y,   na.rm = TRUE)
 
-  # ES for marginals (right tail / losses)
+  # ---- Marginal ES ----
   es_x <- cvar::ES(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_x, sd = sd_x)
   es_y <- cvar::ES(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_y, sd = sd_y)
 
-  out <- numeric(length(weights))
+  # ---- Portfolio mean and SD (no covariance term) ----
+  mean_p <- w * mean_x + (1 - w) * mean_y
+  sd_p   <- sqrt((w * sd_x)^2 + ((1 - w) * sd_y)^2)
 
-  for (i in seq_along(weights)) {
-    w <- weights[i]
+  # ---- Portfolio ES and VaR ----
+  es_p  <- cvar::ES(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_p, sd = sd_p)
+  var_p <- cvar::VaR(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_p, sd = sd_p)
 
-    # Portfolio plug-in mean/stdev under independence proxy (no covariance term by design here)
-    mean_p <- w * mean_x + (1 - w) * mean_y
-    sd_p   <- sqrt((w * sd_x)^2 + ((1 - w) * sd_y)^2)
+  # ---- Conditional Diversification Benefit ----
+  numerator   <- (w * es_x) + ((1 - w) * es_y) - es_p
+  denominator <- (w * es_x) + ((1 - w) * es_y) - var_p
+  cdb_value   <- numerator / denominator
 
-    # ES and VaR for portfolio
-    es_p  <- cvar::ES(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_p, sd = sd_p)
-    var_p <- cvar::VaR(qnorm, p_loss = p, lower.tail = FALSE, mean = mean_p, sd = sd_p)
-
-    # CDB definition
-    numerator   <- (w * es_x) + ((1 - w) * es_y) - es_p
-    denominator <- (w * es_x) + ((1 - w) * es_y) - var_p
-    out[i] <- numerator / denominator
-  }
-
-  res <- matrix(out, nrow = 1L)
-  colnames(res) <- c("w05", "w10", "w20")
-  res
+  as.numeric(cdb_value)
 }
