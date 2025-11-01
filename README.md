@@ -145,6 +145,9 @@ print(res_btc)
 ### 3️⃣ Cross-Quantile Dependence Heatmaps
 
 ``` r
+## Install the 'quantilogram' library
+# install.packages("quantilogram") 
+library(quantilogram)
 # Use gold (GLD) as predicted variable, S&P (SP) as predicting variable
 df1 <- hedgedata[, c("GLD", "SP")]
 ## setup and estimation 
