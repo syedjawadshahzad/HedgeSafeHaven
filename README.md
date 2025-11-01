@@ -20,11 +20,9 @@ Install the package of interest from GitHub using the following code, where you 
 ```r
 library(devtools)
 install_github("https://github.com/syedjawadshahzad/HedgeSafeHaven")
+library(HedgeSafeHaven)
 ```
 
 ## Step 3: Go through tutorial
 
-HedgeSafeHaven Webpage](https://syedjawadshahzad.github.io/HedgeSafeHaven/)
-
-
-```
+[HedgeSafeHaven Webpage](https://syedjawadshahzad.github.io/HedgeSafeHaven/)
