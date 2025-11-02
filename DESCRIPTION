@@ -4,7 +4,7 @@ Version: 0.0.0.9
 Authors@R: 
     person("Jawad", "Shahzad", , "jawad.kazmi5@gmail.com", role = c("aut", "cre"))
 Description: 
-    The package will have functions to test hedge and safe haven hypothesis.
+    The package provides functions to test the hedge and safe haven hypotheses.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

@@ -1,6 +1,8 @@
 
 # HedgeSafeHaven
 
+The package provides functions to test the hedge and safe haven hypotheses.
+
 ## Step 1: Install the devtools package
 
 To install a R package, start by installing the devtools package. The best way to do this is from CRAN, by typing:
