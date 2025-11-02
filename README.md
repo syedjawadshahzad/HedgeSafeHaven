@@ -13,7 +13,7 @@ install.packages("devtools")
 
 ## Step 2: Install the package of interest from GitHub
 
-Install the package of interest from GitHub using the following code, where you need to remember to list both the author and the name of the package (in GitHub jargon, the package is the repo, which is short for repository). In this example, we are installing the ConnectednessApproach package created by GabauerDavid.
+Install the package of interest from GitHub using the following code, where you need to remember to list both the author and the name of the package (in GitHub jargon, the package is the repo, which is short for repository). In this example, we are installing the 'HedgeSafeHaven' package created by 'syedjawadshahzad'.
 
 ```r
 library(devtools)
