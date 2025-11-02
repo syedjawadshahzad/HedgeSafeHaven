@@ -59,7 +59,7 @@
 
 classify_bm10 <- function(res_df, tol = 1e-8) {
   # extract values
-  getv <- function(key) res_df$Coefficient_Sum[res_df$Hedge == key]
+  getv <- function(key) res_df$Coefficient[res_df$Hedge == key]
   getp <- function(key) res_df$p_value[res_df$Hedge == key]
 
   c0    <- getv("c0");    p0  <- getp("c0")
