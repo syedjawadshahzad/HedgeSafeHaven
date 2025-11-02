@@ -23,4 +23,4 @@ library(HedgeSafeHaven)
 
 ## Step 3: Go through tutorial
 
-[Full documentation](https://syedjawadshahzad.github.io/HedgeSafeHaven/)
+[Full documentation](https://syedjawadshahzad.github.io/HedgeSafeHaven/articles/getting-started.html)
