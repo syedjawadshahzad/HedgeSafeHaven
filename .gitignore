@@ -15,9 +15,9 @@ _pkgdown.yml
 
 # folders 
 .github/
-docs/
 tests/
 pkgdown/
 _site/
 
 
+docs
