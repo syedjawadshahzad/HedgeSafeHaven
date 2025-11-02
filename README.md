@@ -1,11 +1,5 @@
 
 # HedgeSafeHaven
-<!-- pkgdown::hide_start -->
-<a href="https://syedjawadshahzad.github.io/HedgeSafeHaven/">
-  <img src="man/figures/logo.png" align="right" height="120" alt="HedgeSafeHaven logo" />
-</a>
-<!-- pkgdown::hide_end -->
-
 
 ## Step 1: Install the devtools package
 
