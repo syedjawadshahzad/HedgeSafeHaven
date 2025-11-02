@@ -74,7 +74,6 @@ Shahzad</h4>
 
     
     
-<p>knitr::opts_chunk$set(message = FALSE, warning = FALSE)</p>
 <div class="section level2">
 <h2 id="hedge-and-safe-haven-testning">Hedge and Safe Haven Testning<a class="anchor" aria-label="anchor" href="#hedge-and-safe-haven-testning"></a>
 </h2>
@@ -113,10 +112,9 @@ retreats — highlighting their differing safe-haven mechanisms.<br>
 2025</a>)</li>
 </ul>
 <p>The <strong>HedgeSafeHaven</strong> package provides econometric
-tools to quantify such behaviors using <strong>GARCH–DCC</strong>,
-<strong>regression-based safe-haven models</strong>,
-<strong>cross-quantile dependence</strong>, and <strong>conditional
-diversification benefits (CDB)</strong>.</p>
+tools to quantify such behaviors using <strong>regression-based
+safe-haven models</strong>, <strong>cross-quantile dependence</strong>,
+and <strong>conditional diversification benefits (CDB)</strong>.</p>
 <hr>
 </div>
 <div class="section level3">
@@ -175,6 +173,8 @@ to sp500 using the <span class="citation">Baur and McDermott
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">res_btc</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##    beta_mean    beta_min  beta_max        HE        OPW</span></span>
 <span><span class="co">## 1 0.06999591 -0.01849912 0.4599944 0.1095714 0.03016472</span></span></code></pre>
+<p>This provides the summary of hedge ratios and the hedge effectiveness
+as in <span class="citation">Basher and Sadorsky (2016)</span>.</p>
 </div>
 <div class="section level4">
 <h4 id="cross-quantile-dependence-heatmaps">3️⃣ Cross-Quantile Dependence Heatmaps<a class="anchor" aria-label="anchor" href="#cross-quantile-dependence-heatmaps"></a>
@@ -217,12 +217,18 @@ stress.</p>
 <pre><code><span><span class="co">## [1] 0.3747956</span></span></code></pre>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute CDB for SP500–Bitcoin portfolio at 5% tail</span></span>
-<span><span class="va">res_cdb2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cdb.html">cdb</a></span><span class="op">(</span><span class="va">hedgedata</span><span class="op">$</span><span class="va">SP</span>, <span class="va">hedgedata</span><span class="op">$</span><span class="va">GLD</span>, p <span class="op">=</span> <span class="fl">0.05</span>, w <span class="op">=</span> <span class="fl">0.10</span><span class="op">)</span></span>
+<span><span class="va">res_cdb2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cdb.html">cdb</a></span><span class="op">(</span><span class="va">hedgedata</span><span class="op">$</span><span class="va">SP</span>, <span class="va">hedgedata</span><span class="op">$</span><span class="va">BTC</span>, p <span class="op">=</span> <span class="fl">0.05</span>, w <span class="op">=</span> <span class="fl">0.10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">res_cdb2</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 0.3747956</span></span></code></pre>
-<p>This returns a 1×3 matrix of CDB values for portfolio weights of 5%,
-10%, and 20% in the hedging asset (gold/bitcoin). Higher CDB values
-imply stronger diversification benefits w.r.t weights.</p>
+<pre><code><span><span class="co">## [1] 0.1352266</span></span></code></pre>
+<p>This returns CDB values for given portfolio weights in the hedging
+asset (gold/bitcoin). Higher CDB values imply stronger diversification
+benefits.</p>
+</div>
+</div>
+</div>
+<div class="section level2">
+<h2 class="unnumbered" id="bibliography">References<a class="anchor" aria-label="anchor" href="#bibliography"></a>
+</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-ali2020" class="csl-entry">
 Ali, Syed, Elie Bouri, Robert L. Czudaj, and Syed Jawad H. Shahzad.
@@ -274,8 +280,6 @@ Shahzad, Syed Jawad H., Elie Bouri, David Roubaud, Ladislav Kristoufek,
 and Brian Lucey. 2019. <span>“Is Bitcoin a Better Safe-Haven Investment
 Than Gold and Commodities?”</span> <em>International Review of Financial
 Analysis</em> 63: 322–30.
-</div>
-</div>
 </div>
 </div>
 </div>
